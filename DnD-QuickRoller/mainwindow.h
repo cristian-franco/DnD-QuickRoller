@@ -6,6 +6,9 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <vector>
+#include <algorithm>
+#include <iostream>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,7 +22,19 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
+
 private:
     Ui::MainWindow *ui;
+
+    std::vector <int> rolledStats;
+
+    void generateStats();
+
+
+private slots:
+    void rollSlot();
+
+
 };
 #endif // MAINWINDOW_H

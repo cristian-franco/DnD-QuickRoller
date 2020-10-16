@@ -9,6 +9,8 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <QStyle>
+#include <QToolButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

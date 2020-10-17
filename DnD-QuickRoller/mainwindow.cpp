@@ -163,8 +163,24 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(mainWidget);
 
     connect(buttonRoll, SIGNAL (clicked()), this, SLOT (rollSlot()));
+
     connect(tButtonTopArrow1, SIGNAL (clicked()), this, SLOT (upChoice1()));
     connect(tButtonBottomArrow1, SIGNAL (clicked()), this, SLOT (downChoice1()));
+
+    connect(tButtonTopArrow2, SIGNAL (clicked()), this, SLOT (upChoice2()));
+    connect(tButtonBottomArrow2, SIGNAL (clicked()), this, SLOT (downChoice2()));
+
+    connect(tButtonTopArrow3, SIGNAL (clicked()), this, SLOT (upChoice3()));
+    connect(tButtonBottomArrow3, SIGNAL (clicked()), this, SLOT (downChoice3()));
+
+    connect(tButtonTopArrow4, SIGNAL (clicked()), this, SLOT (upChoice4()));
+    connect(tButtonBottomArrow4, SIGNAL (clicked()), this, SLOT (downChoice4()));
+
+    connect(tButtonTopArrow5, SIGNAL (clicked()), this, SLOT (upChoice5()));
+    connect(tButtonBottomArrow5, SIGNAL (clicked()), this, SLOT (downChoice5()));
+
+    connect(tButtonTopArrow6, SIGNAL (clicked()), this, SLOT (upChoice6()));
+    connect(tButtonBottomArrow6, SIGNAL (clicked()), this, SLOT (downChoice6()));
 
 }
 
@@ -217,6 +233,138 @@ void MainWindow::downChoice1() {
    QString statString = QString::number(rolledStats.at(choice1Tracker));
    numberDisplays[6]->setText(statString);
 }
+
+void MainWindow::upChoice2() {
+    QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
+
+    if (choice1Tracker == 0) {
+        choice1Tracker = 5;
+    } else {
+        choice1Tracker--;
+    }
+
+    QString statString = QString::number(rolledStats.at(choice1Tracker));
+    numberDisplays[7]->setText(statString);
+ }
+
+ void MainWindow::downChoice2() {
+    QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
+
+    if (choice1Tracker == 5) {
+        choice1Tracker = 0;
+    } else {
+        choice1Tracker++;
+    }
+
+    QString statString = QString::number(rolledStats.at(choice1Tracker));
+    numberDisplays[7]->setText(statString);
+ }
+
+ void MainWindow::upChoice3() {
+     QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
+
+     if (choice1Tracker == 0) {
+         choice1Tracker = 5;
+     } else {
+         choice1Tracker--;
+     }
+
+     QString statString = QString::number(rolledStats.at(choice1Tracker));
+     numberDisplays[8]->setText(statString);
+  }
+
+  void MainWindow::downChoice3() {
+     QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
+
+     if (choice1Tracker == 5) {
+         choice1Tracker = 0;
+     } else {
+         choice1Tracker++;
+     }
+
+     QString statString = QString::number(rolledStats.at(choice1Tracker));
+     numberDisplays[8]->setText(statString);
+  }
+
+  void MainWindow::upChoice4() {
+      QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
+
+      if (choice1Tracker == 0) {
+          choice1Tracker = 5; // NOTE: need to make separate trackers for the choices
+      } else {
+          choice1Tracker--;
+      }
+
+      QString statString = QString::number(rolledStats.at(choice1Tracker));
+      numberDisplays[9]->setText(statString);
+   }
+
+   void MainWindow::downChoice4() {
+      QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
+
+      if (choice1Tracker == 5) {
+          choice1Tracker = 0;
+      } else {
+          choice1Tracker++;
+      }
+
+      QString statString = QString::number(rolledStats.at(choice1Tracker));
+      numberDisplays[9]->setText(statString);
+   }
+
+   void MainWindow::upChoice5() {
+       QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
+
+       if (choice1Tracker == 0) {
+           choice1Tracker = 5;
+       } else {
+           choice1Tracker--;
+       }
+
+       QString statString = QString::number(rolledStats.at(choice1Tracker));
+       numberDisplays[10]->setText(statString);
+    }
+
+    void MainWindow::downChoice5() {
+       QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
+
+       if (choice1Tracker == 5) {
+           choice1Tracker = 0;
+       } else {
+           choice1Tracker++;
+       }
+
+       QString statString = QString::number(rolledStats.at(choice1Tracker));
+       numberDisplays[10]->setText(statString);
+    }
+
+    void MainWindow::upChoice6() {
+        QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
+
+        if (choice1Tracker == 0) {
+            choice1Tracker = 5;
+        } else {
+            choice1Tracker--;
+        }
+
+        QString statString = QString::number(rolledStats.at(choice1Tracker));
+        numberDisplays[11]->setText(statString);
+     }
+
+     void MainWindow::downChoice6() {
+        QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
+
+        if (choice1Tracker == 5) {
+            choice1Tracker = 0;
+        } else {
+            choice1Tracker++;
+        }
+
+        QString statString = QString::number(rolledStats.at(choice1Tracker));
+        numberDisplays[11]->setText(statString);
+     }
+
+
 
 // HELPER FUNCTIONS
 

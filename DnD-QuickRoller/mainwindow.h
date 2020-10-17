@@ -39,8 +39,18 @@ private:
 private slots:
     void rollSlot();
     void upChoice1();
-    void downChoice1();
+    void upChoice2();
+    void upChoice3();
+    void upChoice4();
+    void upChoice5();
+    void upChoice6();
 
+    void downChoice1();
+    void downChoice2();
+    void downChoice3();
+    void downChoice4();
+    void downChoice5();
+    void downChoice6();
 
 
 };

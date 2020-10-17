@@ -31,7 +31,10 @@ private:
 
     std::vector <int> rolledStats;
 
-    int choice1Tracker, choice2Tracker, choice3Tracker, choice4Tracker, choice5Tracker, choice6Tracker;
+    int choice1Tracker, choice2Tracker, choice3Tracker,
+    choice4Tracker, choice5Tracker, choice6Tracker;
+
+    QList<QLabel*> choicesList;
 
     void generateStats();
 

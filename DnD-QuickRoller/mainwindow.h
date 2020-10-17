@@ -31,11 +31,14 @@ private:
 
     std::vector <int> rolledStats;
 
+    int choice1Tracker;
+
     void generateStats();
 
 
 private slots:
     void rollSlot();
+    void upChoice1();
 
 
 };

@@ -7,8 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    int x = width() * 0.7;
-    int y = height() * 0.3;
+    int x = width() * 0.5;
+    int y = height() * 0.4;
     setFixedSize(x,y);
 
     setWindowTitle("DnD Quick Roller");
@@ -49,40 +49,109 @@ MainWindow::MainWindow(QWidget *parent)
 
     QPushButton* buttonRoll = new QPushButton("Roll");
 
-    QWidget* choiceWidget = new QWidget();
-    choiceWidget->setStyleSheet("background-color:white;");
+    QWidget* choicesWidget = new QWidget();
     QHBoxLayout* layoutChoices = new QHBoxLayout();
-    QLabel* choice1 = new QLabel("1");
-    //num1->setStyleSheet("background-color:green;");
-    QLabel* choice2 = new QLabel("2");
-    //num2->setStyleSheet("background-color:brown;");
-    QLabel* choice3 = new QLabel("3");
-    QLabel* choice4 = new QLabel("4");
-    QLabel* choice5 = new QLabel("5");
-    QLabel* choice6 = new QLabel("6");
-    choice1->setStyleSheet("border: 3px solid black;");
-    choice2->setStyleSheet("border: 3px solid black;");
-    choice3->setStyleSheet("border: 3px solid black;");
-    choice4->setStyleSheet("border: 3px solid black;");
-    choice5->setStyleSheet("border: 3px solid black;");
-    choice6->setStyleSheet("border: 3px solid black;");
-    layoutChoices->addWidget(choice1);
-    layoutChoices->addWidget(choice2);
-    layoutChoices->addWidget(choice3);
-    layoutChoices->addWidget(choice4);
-    layoutChoices->addWidget(choice5);
-    layoutChoices->addWidget(choice6);
-    choiceWidget->setLayout(layoutChoices);
 
-    QToolButton* tButtonArrow1 = new QToolButton();
-    tButtonArrow1->setArrowType(Qt::UpArrow);
+    QWidget* choice1Widget = new QWidget();
+    choice1Widget->setStyleSheet("background-color:white;");
+    QVBoxLayout* layoutChoice1 = new QVBoxLayout();
+    QToolButton* tButtonTopArrow1 = new QToolButton();
+    tButtonTopArrow1->setArrowType(Qt::UpArrow);
+    QLabel* choice1 = new QLabel("1");
+    choice1->setStyleSheet("border: 3px solid black;");
+    QToolButton* tButtonBottomArrow1 = new QToolButton();
+    tButtonBottomArrow1->setArrowType(Qt::DownArrow);
+    layoutChoice1->addWidget(tButtonTopArrow1);
+    layoutChoice1->addWidget(choice1);
+    layoutChoice1->addWidget(tButtonBottomArrow1);
+    choice1Widget->setLayout(layoutChoice1);
+
+    QWidget* choice2Widget = new QWidget();
+    choice2Widget->setStyleSheet("background-color:white;");
+    QVBoxLayout* layoutChoice2 = new QVBoxLayout();
+    QToolButton* tButtonTopArrow2 = new QToolButton();
+    tButtonTopArrow2->setArrowType(Qt::UpArrow);
+    QLabel* choice2 = new QLabel("2");
+    choice2->setStyleSheet("border: 3px solid black;");
+    QToolButton* tButtonBottomArrow2 = new QToolButton();
+    tButtonBottomArrow2->setArrowType(Qt::DownArrow);
+    layoutChoice2->addWidget(tButtonTopArrow2);
+    layoutChoice2->addWidget(choice2);
+    layoutChoice2->addWidget(tButtonBottomArrow2);
+    choice2Widget->setLayout(layoutChoice2);
+
+    QWidget* choice3Widget = new QWidget();
+    choice3Widget->setStyleSheet("background-color:white;");
+    QVBoxLayout* layoutChoice3 = new QVBoxLayout();
+    QToolButton* tButtonTopArrow3 = new QToolButton();
+    tButtonTopArrow3->setArrowType(Qt::UpArrow);
+    QLabel* choice3 = new QLabel("3");
+    choice3->setStyleSheet("border: 3px solid black;");
+    QToolButton* tButtonBottomArrow3 = new QToolButton();
+    tButtonBottomArrow3->setArrowType(Qt::DownArrow);
+    layoutChoice3->addWidget(tButtonTopArrow3);
+    layoutChoice3->addWidget(choice3);
+    layoutChoice3->addWidget(tButtonBottomArrow3);
+    choice3Widget->setLayout(layoutChoice3);
+
+    QWidget* choice4Widget = new QWidget();
+    choice4Widget->setStyleSheet("background-color:white;");
+    QVBoxLayout* layoutChoice4 = new QVBoxLayout();
+    QToolButton* tButtonTopArrow4 = new QToolButton();
+    tButtonTopArrow4->setArrowType(Qt::UpArrow);
+    QLabel* choice4 = new QLabel("4");
+    choice4->setStyleSheet("border: 3px solid black;");
+    QToolButton* tButtonBottomArrow4 = new QToolButton();
+    tButtonBottomArrow4->setArrowType(Qt::DownArrow);
+    layoutChoice4->addWidget(tButtonTopArrow4);
+    layoutChoice4->addWidget(choice4);
+    layoutChoice4->addWidget(tButtonBottomArrow4);
+    choice4Widget->setLayout(layoutChoice4);
+
+    QWidget* choice5Widget = new QWidget();
+    choice5Widget->setStyleSheet("background-color:white;");
+    QVBoxLayout* layoutChoice5 = new QVBoxLayout();
+    QToolButton* tButtonTopArrow5 = new QToolButton();
+    tButtonTopArrow5->setArrowType(Qt::UpArrow);
+    QLabel* choice5 = new QLabel("5");
+    choice5->setStyleSheet("border: 3px solid black;");
+    QToolButton* tButtonBottomArrow5 = new QToolButton();
+    tButtonBottomArrow5->setArrowType(Qt::DownArrow);
+    layoutChoice5->addWidget(tButtonTopArrow5);
+    layoutChoice5->addWidget(choice5);
+    layoutChoice5->addWidget(tButtonBottomArrow5);
+    choice5Widget->setLayout(layoutChoice5);
+
+    QWidget* choice6Widget = new QWidget();
+    choice6Widget->setStyleSheet("background-color:white;");
+    QVBoxLayout* layoutChoice6 = new QVBoxLayout();
+    QToolButton* tButtonTopArrow6 = new QToolButton();
+    tButtonTopArrow6->setArrowType(Qt::UpArrow);
+    QLabel* choice6 = new QLabel("6");
+    choice6->setStyleSheet("border: 3px solid black;");
+    QToolButton* tButtonBottomArrow6 = new QToolButton();
+    tButtonBottomArrow6->setArrowType(Qt::DownArrow);
+    layoutChoice6->addWidget(tButtonTopArrow6);
+    layoutChoice6->addWidget(choice6);
+    layoutChoice6->addWidget(tButtonBottomArrow6);
+    choice6Widget->setLayout(layoutChoice6);
+
+
+
+    layoutChoices->addWidget(choice1Widget);
+    layoutChoices->addWidget(choice2Widget);
+    layoutChoices->addWidget(choice3Widget);
+    layoutChoices->addWidget(choice4Widget);
+    layoutChoices->addWidget(choice5Widget);
+    layoutChoices->addWidget(choice6Widget);
+
+    choicesWidget->setLayout(layoutChoices);
 
 
     QVBoxLayout* layoutMain = new QVBoxLayout();
     layoutMain->addWidget(numberWidget);
     layoutMain->addWidget(buttonRoll);
-    layoutMain->addWidget(tButtonArrow1);
-    layoutMain->addWidget(choiceWidget);
+    layoutMain->addWidget(choicesWidget);
 
 
     QWidget* mainWidget = new QWidget();
@@ -92,6 +161,7 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(mainWidget);
 
     connect(buttonRoll, SIGNAL (clicked()), this, SLOT (rollSlot()));
+    connect(tButtonTopArrow1, SIGNAL (clicked()), this, SLOT (upChoice1()));
 
 }
 
@@ -116,6 +186,20 @@ void MainWindow::rollSlot() {
     }
 
 
+}
+
+
+void MainWindow::upChoice1() {
+   QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
+
+   if (choice1Tracker == 0) {
+       choice1Tracker = 5;
+   } else {
+       choice1Tracker--;
+   }
+
+   QString statString = QString::number(rolledStats.at(choice1Tracker));
+   numberDisplays[6]->setText(statString);
 }
 
 

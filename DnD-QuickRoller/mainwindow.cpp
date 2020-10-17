@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     srand(time(0));
 
+    rolledStats = {0, 0, 0, 0, 0, 0};
+
     QWidget* numberWidget = new QWidget();
     numberWidget->setStyleSheet("background-color:white;");
     QHBoxLayout* layoutNumbers = new QHBoxLayout();
@@ -162,6 +164,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(buttonRoll, SIGNAL (clicked()), this, SLOT (rollSlot()));
     connect(tButtonTopArrow1, SIGNAL (clicked()), this, SLOT (upChoice1()));
+    connect(tButtonBottomArrow1, SIGNAL (clicked()), this, SLOT (downChoice1()));
 
 }
 
@@ -202,6 +205,18 @@ void MainWindow::upChoice1() {
    numberDisplays[6]->setText(statString);
 }
 
+void MainWindow::downChoice1() {
+   QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
+
+   if (choice1Tracker == 5) {
+       choice1Tracker = 0;
+   } else {
+       choice1Tracker++;
+   }
+
+   QString statString = QString::number(rolledStats.at(choice1Tracker));
+   numberDisplays[6]->setText(statString);
+}
 
 // HELPER FUNCTIONS
 

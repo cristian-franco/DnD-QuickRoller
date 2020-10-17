@@ -39,6 +39,8 @@ private:
 private slots:
     void rollSlot();
     void upChoice1();
+    void downChoice1();
+
 
 
 };

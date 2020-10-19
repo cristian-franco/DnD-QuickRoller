@@ -35,6 +35,12 @@ MainWindow::MainWindow(QWidget *parent)
     QLabel* num4 = new QLabel("4");
     QLabel* num5 = new QLabel("5");
     QLabel* num6 = new QLabel("6");
+    numbersList.append(num1);
+    numbersList.append(num2);
+    numbersList.append(num3);
+    numbersList.append(num4);
+    numbersList.append(num5);
+    numbersList.append(num6);
     num1->setStyleSheet("border: 3px solid black;");
     num2->setStyleSheet("border: 3px solid black;");
     num3->setStyleSheet("border: 3px solid black;");
@@ -219,17 +225,21 @@ void MainWindow::rollSlot() {
 
     generateStats();
 
-    QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
+    choice1Tracker = 0;
+    choice2Tracker = 1;
+    choice3Tracker = 2;
+    choice4Tracker = 3;
+    choice5Tracker = 4;
+    choice6Tracker = 5;
+
+    //QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
 
 //     std::cout << numberDisplays.size() << std::endl; // gives 6
 
     for (int b = 0; b < 6; b++) {
         QString numberString = QString::number(rolledStats.at(b));
-        numberDisplays[b]->setText(numberString);
+        numbersList[b]->setText(numberString);
     }
-
-
-
 
     for (int c = 0; c < 6; c++) {
         QString numberString = QString::number(rolledStats.at(c));

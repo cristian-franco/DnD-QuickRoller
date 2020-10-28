@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -25,12 +25,11 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     QWidget* numberWidget = new QWidget();
-    numberWidget->setStyleSheet("background-color:white;");
+    //numberWidget->setStyleSheet("background-color:white;");
     QHBoxLayout* layoutNumbers = new QHBoxLayout();
     QLabel* num1 = new QLabel("1");
-    //num1->setStyleSheet("background-color:green;");
     QLabel* num2 = new QLabel("2");
-    //num2->setStyleSheet("background-color:brown;");
+    num2->setStyleSheet("background-color:brown;");
     QLabel* num3 = new QLabel("3");
     QLabel* num4 = new QLabel("4");
     QLabel* num5 = new QLabel("5");
@@ -41,18 +40,18 @@ MainWindow::MainWindow(QWidget *parent)
     numbersList.append(num4);
     numbersList.append(num5);
     numbersList.append(num6);
-    num1->setStyleSheet("border: 3px solid black;");
-    num2->setStyleSheet("border: 3px solid black;");
-    num3->setStyleSheet("border: 3px solid black;");
-    num4->setStyleSheet("border: 3px solid black;");
-    num5->setStyleSheet("border: 3px solid black;");
-    num6->setStyleSheet("border: 3px solid black;");
-//    num1->setAlignment(Qt::AlignHCenter);
-//    num2->setStyleSheet("border: 3px solid black;");
-//    num3->setStyleSheet("border: 3px solid black;");
-//    num4->setStyleSheet("border: 3px solid black;");
-//    num5->setStyleSheet("border: 3px solid black;");
-//    num6->setStyleSheet("border: 3px solid black;");
+    num1->setStyleSheet("border: 3px solid black; background-color:white;");
+    num2->setStyleSheet("border: 3px solid black; background-color:white;");
+    num3->setStyleSheet("border: 3px solid black; background-color:white;");
+    num4->setStyleSheet("border: 3px solid black; background-color:white;");
+    num5->setStyleSheet("border: 3px solid black; background-color:white;");
+    num6->setStyleSheet("border: 3px solid black; background-color:white;");
+    num1->setAlignment(Qt::AlignCenter);
+    num2->setAlignment(Qt::AlignCenter);
+    num3->setAlignment(Qt::AlignCenter);
+    num4->setAlignment(Qt::AlignCenter);
+    num5->setAlignment(Qt::AlignCenter);
+    num6->setAlignment(Qt::AlignCenter);
     layoutNumbers->addWidget(num1);
     layoutNumbers->addWidget(num2);
     layoutNumbers->addWidget(num3);
@@ -61,8 +60,11 @@ MainWindow::MainWindow(QWidget *parent)
     layoutNumbers->addWidget(num6);
     numberWidget->setLayout(layoutNumbers);
 
+
+    // MAIN ROLL BUTTON CREATION
     QPushButton* buttonRoll = new QPushButton("Roll");
 
+    // bottom row of choices; includes labels and buttons to select
     QWidget* choicesWidget = new QWidget();
     QHBoxLayout* layoutChoices = new QHBoxLayout();
 
@@ -74,6 +76,7 @@ MainWindow::MainWindow(QWidget *parent)
     QLabel* choice1 = new QLabel("1");
     choicesList.append(choice1);
     choice1->setStyleSheet("border: 3px solid black;");
+    choice1->setAlignment(Qt::AlignCenter);
     QToolButton* tButtonBottomArrow1 = new QToolButton();
     tButtonBottomArrow1->setArrowType(Qt::DownArrow);
     QLabel* strLabel = new QLabel("STR");
@@ -168,8 +171,6 @@ MainWindow::MainWindow(QWidget *parent)
     layoutChoice6->addWidget(chaLabel);
     choice6Widget->setLayout(layoutChoice6);
 
-
-
     layoutChoices->addWidget(choice1Widget);
     layoutChoices->addWidget(choice2Widget);
     layoutChoices->addWidget(choice3Widget);
@@ -179,19 +180,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     choicesWidget->setLayout(layoutChoices);
 
-
+    // MAIN creation
     QVBoxLayout* layoutMain = new QVBoxLayout();
     layoutMain->addWidget(numberWidget);
     layoutMain->addWidget(buttonRoll);
     layoutMain->addWidget(choicesWidget);
 
-
     QWidget* mainWidget = new QWidget();
-
     mainWidget->setLayout(layoutMain);
-
     setCentralWidget(mainWidget);
 
+    // CONNECTIONS
     connect(buttonRoll, SIGNAL (clicked()), this, SLOT (rollSlot()));
 
     connect(tButtonTopArrow1, SIGNAL (clicked()), this, SLOT (upChoice1()));
@@ -232,10 +231,6 @@ void MainWindow::rollSlot() {
     choice5Tracker = 4;
     choice6Tracker = 5;
 
-    //QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
-
-//     std::cout << numberDisplays.size() << std::endl; // gives 6
-
     for (int b = 0; b < 6; b++) {
         QString numberString = QString::number(rolledStats.at(b));
         numbersList[b]->setText(numberString);
@@ -250,7 +245,6 @@ void MainWindow::rollSlot() {
 
 
 void MainWindow::upChoice1() {
-//   QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
 
    if (choice1Tracker == 0) {
        choice1Tracker = 5;
@@ -263,7 +257,6 @@ void MainWindow::upChoice1() {
 }
 
 void MainWindow::downChoice1() {
-//   QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
 
    if (choice1Tracker == 5) {
        choice1Tracker = 0;
@@ -276,7 +269,6 @@ void MainWindow::downChoice1() {
 }
 
 void MainWindow::upChoice2() {
-//    QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
 
     if (choice2Tracker == 0) {
         choice2Tracker = 5;
@@ -289,7 +281,6 @@ void MainWindow::upChoice2() {
  }
 
 void MainWindow::downChoice2() {
-//    QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
 
     if (choice2Tracker == 5) {
         choice2Tracker = 0;
@@ -302,107 +293,99 @@ void MainWindow::downChoice2() {
 }
 
 void MainWindow::upChoice3() {
-//     QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
 
-     if (choice3Tracker == 0) {
-         choice3Tracker = 5;
-     } else {
-         choice3Tracker--;
-     }
+    if (choice3Tracker == 0) {
+        choice3Tracker = 5;
+    } else {
+        choice3Tracker--;
+    }
 
-     QString statString = QString::number(rolledStats.at(choice3Tracker));
-     choicesList[2]->setText(statString);
-  }
+    QString statString = QString::number(rolledStats.at(choice3Tracker));
+    choicesList[2]->setText(statString);
+}
 
 void MainWindow::downChoice3() {
-//    QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
 
-     if (choice3Tracker == 5) {
-         choice3Tracker = 0;
-     } else {
-         choice3Tracker++;
-     }
+    if (choice3Tracker == 5) {
+        choice3Tracker = 0;
+    } else {
+        choice3Tracker++;
+    }
 
-     QString statString = QString::number(rolledStats.at(choice3Tracker));
-     choicesList[2]->setText(statString);
-  }
+    QString statString = QString::number(rolledStats.at(choice3Tracker));
+    choicesList[2]->setText(statString);
+}
 
 void MainWindow::upChoice4() {
-//      QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
 
-      if (choice4Tracker == 0) {
-          choice4Tracker = 5; // NOTE: need to make separate trackers for the choices
-      } else {
-          choice4Tracker--;
-      }
+    if (choice4Tracker == 0) {
+        choice4Tracker = 5;
+    } else {
+        choice4Tracker--;
+    }
 
-      QString statString = QString::number(rolledStats.at(choice4Tracker));
-      choicesList[3]->setText(statString);
-   }
+    QString statString = QString::number(rolledStats.at(choice4Tracker));
+    choicesList[3]->setText(statString);
+}
 
 void MainWindow::downChoice4() {
-//    QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
 
-      if (choice4Tracker == 5) {
+    if (choice4Tracker == 5) {
           choice4Tracker = 0;
-      } else {
+    } else {
           choice4Tracker++;
-      }
+    }
 
-      QString statString = QString::number(rolledStats.at(choice4Tracker));
-      choicesList[3]->setText(statString);
-   }
+    QString statString = QString::number(rolledStats.at(choice4Tracker));
+    choicesList[3]->setText(statString);
+}
 
 void MainWindow::upChoice5() {
-//     QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
 
-       if (choice5Tracker == 0) {
-           choice5Tracker = 5;
-       } else {
-           choice5Tracker--;
-       }
+    if (choice5Tracker == 0) {
+        choice5Tracker = 5;
+    } else {
+        choice5Tracker--;
+    }
 
-       QString statString = QString::number(rolledStats.at(choice5Tracker));
-       choicesList[4]->setText(statString);
+    QString statString = QString::number(rolledStats.at(choice5Tracker));
+    choicesList[4]->setText(statString);
 }
 
 void MainWindow::downChoice5() {
- //      QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
 
-       if (choice5Tracker == 5) {
-           choice5Tracker = 0;
-       } else {
-           choice5Tracker++;
-       }
-
-       QString statString = QString::number(rolledStats.at(choice5Tracker));
-       choicesList[4]->setText(statString);
+    if (choice5Tracker == 5) {
+        choice5Tracker = 0;
+    } else {
+        choice5Tracker++;
     }
 
+    QString statString = QString::number(rolledStats.at(choice5Tracker));
+    choicesList[4]->setText(statString);
+}
+
 void MainWindow::upChoice6() {
-  //      QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
 
-        if (choice6Tracker == 0) {
-            choice6Tracker = 5;
-        } else {
-            choice6Tracker--;
-        }
+    if (choice6Tracker == 0) {
+        choice6Tracker = 5;
+    } else {
+        choice6Tracker--;
+    }
 
-        QString statString = QString::number(rolledStats.at(choice6Tracker));
-        choicesList[5]->setText(statString);
+    QString statString = QString::number(rolledStats.at(choice6Tracker));
+    choicesList[5]->setText(statString);
 }
 
 void MainWindow::downChoice6() {
-  //      QList<QLabel*> numberDisplays = centralWidget()->findChildren<QLabel *>();
 
-        if (choice6Tracker == 5) {
-            choice6Tracker = 0;
-        } else {
-            choice6Tracker++;
-        }
+    if (choice6Tracker == 5) {
+        choice6Tracker = 0;
+    } else {
+        choice6Tracker++;
+    }
 
-        QString statString = QString::number(rolledStats.at(choice6Tracker));
-        choicesList[5]->setText(statString);
+    QString statString = QString::number(rolledStats.at(choice6Tracker));
+    choicesList[5]->setText(statString);
 }
 
 

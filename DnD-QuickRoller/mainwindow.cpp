@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     int x = width() * 0.5;
-    int y = height() * 0.5;
+    int y = height() * 0.6;
     setFixedSize(x,y);
 
     setWindowTitle("DnD Quick Roller");
@@ -80,17 +80,21 @@ MainWindow::MainWindow(QWidget *parent)
     choicesList.append(choice1);
     choice1->setStyleSheet("border: 3px solid black; background-color:white;");
     choice1->setAlignment(Qt::AlignCenter);
-    //choice1->setFixedWidth(25);
     choice1->setFixedSize(30, 30);
     QToolButton* tButtonBottomArrow1 = new QToolButton();
     tButtonBottomArrow1->setArrowType(Qt::DownArrow);
     tButtonBottomArrow1->setFixedSize(30,30);
     tButtonBottomArrow1->setIconSize(QSize(30, 30));
     QLabel* strLabel = new QLabel("STR");
+    strLabel->setAlignment(Qt::AlignCenter);
+    QLabel* strModLabel = new QLabel("+0");
+    modifiersList.append(strModLabel);
+    strModLabel->setAlignment(Qt::AlignCenter);
     layoutChoice1->addWidget(tButtonTopArrow1);
     layoutChoice1->addWidget(choice1);
     layoutChoice1->addWidget(tButtonBottomArrow1);
     layoutChoice1->addWidget(strLabel);
+    layoutChoice1->addWidget(strModLabel);
     layoutChoice1->setAlignment(Qt::AlignCenter);
     choice1Widget->setLayout(layoutChoice1);
 
@@ -105,17 +109,21 @@ MainWindow::MainWindow(QWidget *parent)
     choicesList.append(choice2);
     choice2->setStyleSheet("border: 3px solid black; background-color:white;");
     choice2->setAlignment(Qt::AlignCenter);
-    //choice2->setFixedWidth(25);
     choice2->setFixedSize(30, 30);
     QToolButton* tButtonBottomArrow2 = new QToolButton();
     tButtonBottomArrow2->setArrowType(Qt::DownArrow);
     tButtonBottomArrow2->setFixedSize(30,30);
     tButtonBottomArrow2->setIconSize(QSize(30, 30));
     QLabel* dexLabel = new QLabel("DEX");
+    dexLabel->setAlignment(Qt::AlignCenter);
+    QLabel* dexModLabel = new QLabel("+0");
+    modifiersList.append(dexModLabel);
+    dexModLabel->setAlignment(Qt::AlignCenter);
     layoutChoice2->addWidget(tButtonTopArrow2);
     layoutChoice2->addWidget(choice2);
     layoutChoice2->addWidget(tButtonBottomArrow2);
     layoutChoice2->addWidget(dexLabel);
+    layoutChoice2->addWidget(dexModLabel);
     layoutChoice2->setAlignment(Qt::AlignCenter);
     choice2Widget->setLayout(layoutChoice2);
 
@@ -130,17 +138,21 @@ MainWindow::MainWindow(QWidget *parent)
     choicesList.append(choice3);
     choice3->setStyleSheet("border: 3px solid black; background-color:white;");
     choice3->setAlignment(Qt::AlignCenter);
-    //choice3->setFixedWidth(25);
     choice3->setFixedSize(30, 30);
     QToolButton* tButtonBottomArrow3 = new QToolButton();
     tButtonBottomArrow3->setArrowType(Qt::DownArrow);
     tButtonBottomArrow3->setFixedSize(30,30);
     tButtonBottomArrow3->setIconSize(QSize(30, 30));
     QLabel* conLabel = new QLabel("CON");
+    conLabel->setAlignment(Qt::AlignCenter);
+    QLabel* conModLabel = new QLabel("+0");
+    modifiersList.append(conModLabel);
+    conModLabel->setAlignment(Qt::AlignCenter);
     layoutChoice3->addWidget(tButtonTopArrow3);
     layoutChoice3->addWidget(choice3);
     layoutChoice3->addWidget(tButtonBottomArrow3);
     layoutChoice3->addWidget(conLabel);
+    layoutChoice3->addWidget(conModLabel);
     layoutChoice3->setAlignment(Qt::AlignCenter);
     choice3Widget->setLayout(layoutChoice3);
 
@@ -155,17 +167,21 @@ MainWindow::MainWindow(QWidget *parent)
     choicesList.append(choice4);
     choice4->setStyleSheet("border: 3px solid black; background-color:white;");
     choice4->setAlignment(Qt::AlignCenter);
-    //choice4->setFixedWidth(25);
     choice4->setFixedSize(30, 30);
     QToolButton* tButtonBottomArrow4 = new QToolButton();
     tButtonBottomArrow4->setArrowType(Qt::DownArrow);
     tButtonBottomArrow4->setFixedSize(30,30);
     tButtonBottomArrow4->setIconSize(QSize(30, 30));
     QLabel* intLabel = new QLabel("INT");
+    intLabel->setAlignment(Qt::AlignCenter);
+    QLabel* intModLabel = new QLabel("+0");
+    modifiersList.append(intModLabel);
+    intModLabel->setAlignment(Qt::AlignCenter);
     layoutChoice4->addWidget(tButtonTopArrow4);
     layoutChoice4->addWidget(choice4);
     layoutChoice4->addWidget(tButtonBottomArrow4);
     layoutChoice4->addWidget(intLabel);
+    layoutChoice4->addWidget(intModLabel);
     layoutChoice4->setAlignment(Qt::AlignCenter);
     choice4Widget->setLayout(layoutChoice4);
 
@@ -180,17 +196,21 @@ MainWindow::MainWindow(QWidget *parent)
     choicesList.append(choice5);
     choice5->setStyleSheet("border: 3px solid black; background-color:white;");
     choice5->setAlignment(Qt::AlignCenter);
-    //choice5->setFixedWidth(25);
     choice5->setFixedSize(30, 30);
     QToolButton* tButtonBottomArrow5 = new QToolButton();
     tButtonBottomArrow5->setArrowType(Qt::DownArrow);
     tButtonBottomArrow5->setFixedSize(30,30);
     tButtonBottomArrow5->setIconSize(QSize(30, 30));
     QLabel* wisLabel = new QLabel("WIS");
+    wisLabel->setAlignment(Qt::AlignCenter);
+    QLabel* wisModLabel = new QLabel("+0");
+    modifiersList.append(wisModLabel);
+    wisModLabel->setAlignment(Qt::AlignCenter);
     layoutChoice5->addWidget(tButtonTopArrow5);
     layoutChoice5->addWidget(choice5);
     layoutChoice5->addWidget(tButtonBottomArrow5);
     layoutChoice5->addWidget(wisLabel);
+    layoutChoice5->addWidget(wisModLabel);
     layoutChoice5->setAlignment(Qt::AlignCenter);
     choice5Widget->setLayout(layoutChoice5);
 
@@ -205,21 +225,23 @@ MainWindow::MainWindow(QWidget *parent)
     choicesList.append(choice6);
     choice6->setStyleSheet("border: 3px solid black; background-color:white;");
     choice6->setAlignment(Qt::AlignCenter);
-//    choice6->setFixedWidth(30);
-//    choice6->setFixedHeight(30);
     choice6->setFixedSize(30, 30);
     QToolButton* tButtonBottomArrow6 = new QToolButton();
     tButtonBottomArrow6->setArrowType(Qt::DownArrow);
     tButtonBottomArrow6->setFixedSize(30, 30);
     tButtonBottomArrow6->setIconSize(QSize(30, 30));
     QLabel* chaLabel = new QLabel("CHA");
+    chaLabel->setAlignment(Qt::AlignCenter);
+    QLabel* chaModLabel = new QLabel("+0");
+    modifiersList.append(chaModLabel);
+    chaModLabel->setAlignment(Qt::AlignCenter);
     layoutChoice6->addWidget(tButtonTopArrow6);
     layoutChoice6->addWidget(choice6);
     layoutChoice6->addWidget(tButtonBottomArrow6);
     layoutChoice6->addWidget(chaLabel);
+    layoutChoice6->addWidget(chaModLabel);
     layoutChoice6->setAlignment(Qt::AlignCenter);
     choice6Widget->setLayout(layoutChoice6);
-
     layoutChoices->addWidget(choice1Widget);
     layoutChoices->addWidget(choice2Widget);
     layoutChoices->addWidget(choice3Widget);
@@ -272,6 +294,7 @@ MainWindow::~MainWindow()
 void MainWindow::rollSlot() {
 
     generateStats();
+    generateMods();
 
     choice1Tracker = 0;
     choice2Tracker = 1;
@@ -283,12 +306,18 @@ void MainWindow::rollSlot() {
     for (int b = 0; b < 6; b++) {
         QString numberString = QString::number(rolledStats.at(b));
         numbersList[b]->setText(numberString);
+        choicesList[b]->setText(numberString);
+
+        QString modString = QString::number(modifiers.at(b));
+
+        if (modifiers.at(b) > -1) {
+            modString.insert(0, '+');
+        }
+
+
+        modifiersList[b]->setText(modString);
     }
 
-    for (int c = 0; c < 6; c++) {
-        QString numberString = QString::number(rolledStats.at(c));
-        choicesList[c]->setText(numberString);
-    }
 
 }
 
@@ -461,6 +490,17 @@ void MainWindow::generateStats() {
         }
 
         rolledStats.push_back(stat);
+    }
+
+}
+
+void MainWindow::generateMods() {
+    modifiers.clear();
+    int mod = 0;
+
+    for (int i = 0; i < 6; i++) {
+        mod = (rolledStats.at(i) / 2) - 5;
+        modifiers.push_back(mod);
     }
 
 }

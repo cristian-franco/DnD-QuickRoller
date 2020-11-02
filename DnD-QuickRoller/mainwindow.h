@@ -30,14 +30,17 @@ private:
     Ui::MainWindow *ui;
 
     std::vector <int> rolledStats;
+    std::vector <int> modifiers;
 
     int choice1Tracker, choice2Tracker, choice3Tracker,
     choice4Tracker, choice5Tracker, choice6Tracker;
 
     QList<QLabel*> numbersList;
     QList<QLabel*> choicesList;
+    QList<QLabel*> modifiersList;
 
     void generateStats();
+    void generateMods();
 
 
 private slots:
